@@ -18,6 +18,7 @@ def givenBgetΛ(B):
   return ΛA, ΛB
 
 def SlaterCondon(Binary):
+    Binary = Binary.swapaxes(0,1)
     N_s    = np.einsum("sp -> s", Binary[0])
     Difference     = np.einsum("Isp, J -> IJsp", Binary, np.ones(len(Binary), dtype=np.int8)) - np.einsum("Isp, J -> JIsp", Binary, np.ones(len(Binary), dtype=np.int8))
     Sum            = np.einsum("Isp, J -> IJsp", Binary, np.ones(len(Binary), dtype=np.int8)) + np.einsum("Isp, J -> JIsp", Binary, np.ones(len(Binary), dtype=np.int8))
